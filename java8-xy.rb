@@ -3,7 +3,10 @@ cask 'java8Xy' do
   sha256 '3ea78e0107f855b47a55414fadaabd04b94e406050d615663d54200ec85efc9b'
 
   java_update = version.sub(%r{.*_(\d+)-.*}, '\1')
-  url "http://bucket.oa.com/download/dco-source//#{version.minor}u#{version.before_comma.split('_').last}/#{version.after_comma}/jdk-#{version.minor}u#{java_update}-macosx-x64.dmg"
+  url "http://download.oracle.com/otn-pub/java/jdk/#{version.minor}u#{version.before_comma.split('_').last}/#{version.after_comma}/jdk-#{version.minor}u#{java_update}-macosx-x64.dmg",
+      cookies: {
+                 'oraclelicense' => 'accept-securebackup-cookie',
+               }
   name 'Java Standard Edition Development Kit'
   homepage "https://www.oracle.com/technetwork/java/javase/downloads/jdk#{version.minor}-downloads-2133151.html"
 
